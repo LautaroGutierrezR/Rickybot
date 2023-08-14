@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./estilos.css">
+    <title>RickyBot</title>
+</head>
+<body>
+    <h1>RickyBot</h1>
+  <div class="Parrafo"> <p>El Rickybot nos dira cuantos formularios</p>  <p class="trece">13 </p> <p class="o"> o </p> <p class="tresuno"> 31</p> <p>vamos a necesitar</p></div> 
+
+    <div>
+        <h2>Transf con envio</h2>
+        
+        <div class="Formulario">
+            <label for="Nombre:">
+               Año del vehiculo:
+                <input type="number" name="A" id="Anio" required  class="itemf">
+            </label>
+            
+          
+            
+            <label for="Ciudad">Seleccione destino 
+                <select name="Destino" id="Destino" required >
+                    
+                    <option value="Almirante Brown">Almirante Brown</option>
+                    <option value="Avellaneda">Avellaneda</option>
+                    <option value="Bahía Blanca">Bahía Blanca</option>
+                    <option value="Berazategui">Berazategui</option>
+                    <option value="Buenos Aires">Buenos Aires</option>
+                    <option value="Caleta Olivia">Caleta Olivia</option>
+                    <option value="Chajarí">Chajarí</option>
+                    <option value="Córdoba">Córdoba</option>
+                    <option value="Corrientes">Corrientes</option>
+                    <option value="Escobar">Escobar</option>
+                    <option value="Ezeiza">Ezeiza</option>
+                    <option value="Florencio Varela">Florencio Varela</option>
+                    <option value="Formosa">Formosa</option>
+                    <option value="Goya">Goya</option>
+                    <option value="Gualeguaychú">Gualeguaychú</option>
+                    <option value="Hurlingham">Hurlingham</option>
+                    <option value="Ituzaingó">Ituzaingó</option>
+                    <option value="José C. Paz">José C. Paz</option>
+                    <option value="Junín">Junín</option>
+                    <option value="La Matanza">La Matanza</option>
+                    <option value="La Plata">La Plata</option>
+                    <option value="Lanús">Lanús</option>
+                    <option value="Lomas de Zamora">Lomas de Zamora</option>
+                    <option value="Malvinas Argentinas">Malvinas Argentinas</option>
+                    <option value="Mar del Plata">Mar del Plata</option>
+                    <option value="Mendoza">Mendoza</option>
+                    <option value="Merlo">Merlo</option>
+                    <option value="Mercedes">Mercedes</option>
+                    <option value="Moreno">Moreno</option>
+                    <option value="Morón">Morón</option>
+                    <option value="Neuquén">Neuquén</option>
+                    <option value="Olavarría">Olavarría</option>
+                    <option value="Paraná">Paraná</option>
+                    <option value="Pergamino">Pergamino</option>
+                    <option value="Pilar">Pilar</option>
+                    <option value="Posadas">Posadas</option>
+                    <option value="Presidencia Roque Sáenz Peña">Presidencia Roque Sáenz Peña</option>
+                    <option value="Puerto Madryn">Puerto Madryn</option>
+                    <option value="Quilmes">Quilmes</option>
+                    <option value="Resistencia">Resistencia</option>
+                    <option value="Río Cuarto">Río Cuarto</option>
+                    <option value="Río Gallegos">Río Gallegos</option>
+                    <option value="Rosario">Rosario</option>
+                    <option value="Salta">Salta</option>
+                    <option value="San Fernando">San Fernando</option>
+                    <option value="San Isidro">San Isidro</option>
+                    <option value="San Juan">San Juan</option>
+                    <option value="San Martín">San Martín</option>
+                    <option value="San Nicolás de los Arroyos">San Nicolás de los Arroyos</option>
+                    <option value="San Pedro">San Pedro</option>
+                    <option value="San Ramón de la Nueva Orán">San Ramón de la Nueva Orán</option>
+                    <option value="San Salvador de Jujuy">San Salvador de Jujuy</option>
+                    <option value="San Vicente">San Vicente</option>
+                    <option value="Santa Fe">Santa Fe</option>
+                    <option value="Santa Rosa">Santa Rosa</option>
+                    <option value="Santiago del Estero">Santiago del Estero</option>
+                    <option value="Tigre">Tigre</option>
+                    <option value="Trelew">Trelew</option>
+                    <option value="Tucumán">Tucumán</option>
+                    <option value="Ushuaia">Ushuaia</option>
+                    <option value="Vicente López">Vicente López</option>
+                    <option value="Villa Carlos Paz">Villa Carlos Paz</option>
+                    <option value="Villa María">Villa María</option>
+                    <option value="Zapala">Zapala</option>
+                </select>
+            </label>
+            
+           
+               
+                <input type="submit" value="Calcular" onclick="CalcularFormularios()">
+        </div>
+        <button onclick="reset()">Reset</button>
+       <h3 class="Resultado" id="Resultado"></h3>
+    </div>
+    <script>
+
+
+
+
+let resultado = 0 
+
+
+// Anterior a 2013 y sin convenio lleva un 13 y un 31
+// Siempre que tenga convenio lleva un 13
+// Posterior a 2013 y va a buenos aires lleva 2 13
+
+
+const ciudadesBuenosAires = [
+  "Almirante Brown", "Avellaneda",
+  "Bahía Blanca","Berazategui","Buenos Aires",
+  "Caleta Olivia","Chajarí",
+  "Escobar","Ezeiza",
+  "Florencio Varela",
+  "Goya","Gualeguaychú",
+  "Hurlingham",
+  "Ituzaingó",
+  "José C. Paz","Junín",
+  "La Matanza","La Plata","Lanús","Lomas de Zamora",
+  "Malvinas Argentinas","Mar del Plata","Merlo","Mercedes","Moreno","Morón",
+  "Olavarría",
+  "Pergamino","Pilar","Presidencia Roque Sáenz Peña",
+  "Quilmes",
+  "San Fernando","San Isidro","San Juan","San Martín","San Nicolás de los Arroyos","San Pedro","San Vicente",
+  "Tigre","Tres de Febrero",
+  "Vicente López","Villa Bosch","Villa Carlos Paz","Villa María"
+];
+const TieneConvenio=[ 
+    "Almirante Brown", "Avellaneda",
+  "Bahía Blanca","Berazategui",
+  "Escobar","Ezeiza",
+  "Florencio Varela","Formosa",
+  "Junín",
+  "La Matanza","La Plata","Lanús",
+  "Mar del Plata","Merlo","Moreno",
+  "Pergamino","Pilar",
+  "Quilmes",
+  "Río Cuarto","Río Gallegos",
+  "Salta","San Juan","San Martín"
+
+
+
+]
+
+function ciudadEnLista(Destino) {
+  return ciudadesBuenosAires.includes(Destino);
+
+}
+
+function ciudadConConvenio(Destino) {
+  return TieneConvenio.includes(Destino);
+
+}
+
+
+console.log(ciudadEnLista("Lanús"))
+
+
+
+function CalcularFormularios() {
+            let Anio = parseInt(document.getElementById("Anio").value);
+            let Destino = document.getElementById("Destino").value;
+            let mensajeResultado = document.getElementById("Resultado");
+            
+            if (Anio >= 2013 && ciudadEnLista(Destino)) {
+                resultado = resultado + 2;
+                mensajeResultado.innerHTML = "Cantidad de formularios  = " +  " 2 Formularios '13J'";
+            } 
+            else if (Anio < 2013 && ciudadConConvenio(Destino)) {
+                resultado = resultado + 1;
+                mensajeResultado.innerHTML = "Cantidad de formularios  = " + " Un Formulario'13J'";
+            }
+            else if (Anio < 2013 && !ciudadConConvenio(Destino)) {
+                resultado = resultado + 1;
+                mensajeResultado.innerHTML = "Cantidad de formularios = " +   " Un Formulario '13J'"+ " y un'31'"
+            }
+           
+            else {
+                mensajeResultado.innerHTML = "No sé hacer eso todavía Ricky";
+            }
+          
+        }
+    
+
+
+        function reset() {
+            resultado = 0;
+            let mensajeResultado = document.getElementById("Resultado");
+            mensajeResultado.innerHTML = "Cantidad de formularios 13 = " + resultado;
+        }
+    </script>
+
+    
+</body>
+</html>

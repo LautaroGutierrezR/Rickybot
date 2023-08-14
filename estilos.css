@@ -1,0 +1,17 @@
+.trece{
+    background-color: orange;
+    margin-left: 3px;
+    padding: 2px;
+}
+.tresuno{
+    background-color: cornflowerblue;
+    margin-right: 3px;
+    padding: 2px;
+}
+.o{
+    margin-left: 3px;
+    margin-right: 3px;
+}
+.Parrafo{
+    display: flex;
+}
