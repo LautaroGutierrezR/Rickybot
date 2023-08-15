@@ -1,3 +1,19 @@
+*{
+    background-color:whitesmoke;
+  
+}
+.box{
+    margin: 30px;
+}
+.riquelme{
+    display: flex;
+}
+.ricky{
+    color: orange;
+}
+.bot{
+    color: cornflowerblue;
+}
 .trece{
     background-color: orange;
     margin-left: 3px;
@@ -15,3 +31,8 @@
 .Parrafo{
     display: flex;
 }
+.calcular{
+    background-color: cornflowerblue;
+    color: orange;
+}
+

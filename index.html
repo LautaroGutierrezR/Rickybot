@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./estilos.css">
-    <title>RickyBot</title>
+    <title>RickyBot🤖</title>
+    
 </head>
 <body>
-    <h1>RickyBot</h1>
-  <div class="Parrafo"> <p>El Rickybot nos dira cuantos formularios</p>  <p class="trece">13 </p> <p class="o"> o </p> <p class="tresuno"> 31</p> <p>vamos a necesitar</p></div> 
+    <div class="box">
+    <div class="riquelme"><h2 class="ricky">Ricky</h2><h2 class="bot">Bot</h2> <h2>🤖</h2></div>
+  <div class="Parrafo"> <p>El Rickybot nos dira cuantos formularios</p>  <p class="trece">13 </p> <p class="o"> o </p> <p class="tresuno"> 31</p> <p>vamos a necesitar.</p></div> 
 
     <div>
         <h2>Transf con envio</h2>
@@ -93,17 +95,18 @@
             
            
                
-                <input type="submit" value="Calcular" onclick="CalcularFormularios()">
+                <input type="submit" value="Calcular" class="calcular" onclick="CalcularFormularios()">
         </div>
-        <button onclick="reset()">Reset</button>
+      
        <h3 class="Resultado" id="Resultado"></h3>
     </div>
+       </div>
     <script>
 
 
 
 
-let resultado = 0 
+
 
 
 // Anterior a 2013 y sin convenio lleva un 13 y un 31
@@ -168,16 +171,16 @@ function CalcularFormularios() {
             let mensajeResultado = document.getElementById("Resultado");
             
             if (Anio >= 2013 && ciudadEnLista(Destino)) {
-                resultado = resultado + 2;
-                mensajeResultado.innerHTML = "Cantidad de formularios  = " +  " 2 Formularios '13J'";
+                
+                mensajeResultado.innerHTML = "Cantidad de formularios  = " +  " 2 Formularios <span style='background-color: orange;'>'13J'</span>";
             } 
             else if (Anio < 2013 && ciudadConConvenio(Destino)) {
-                resultado = resultado + 1;
-                mensajeResultado.innerHTML = "Cantidad de formularios  = " + " Un Formulario'13J'";
+                
+                mensajeResultado.innerHTML = "Cantidad de formularios  = " + "Un Formulario <span style='background-color: orange;'>'13J'</span>";
             }
             else if (Anio < 2013 && !ciudadConConvenio(Destino)) {
-                resultado = resultado + 1;
-                mensajeResultado.innerHTML = "Cantidad de formularios = " +   " Un Formulario '13J'"+ " y un'31'"
+               
+                mensajeResultado.innerHTML = "Cantidad de formularios = " +   " Un Formulario <span style='background-color: orange;'>'13J'</span>"+ " y un <span style='background-color: cornflowerblue;'>'31'</span>"
             }
            
             else {
@@ -188,11 +191,7 @@ function CalcularFormularios() {
     
 
 
-        function reset() {
-            resultado = 0;
-            let mensajeResultado = document.getElementById("Resultado");
-            mensajeResultado.innerHTML = "Cantidad de formularios 13 = " + resultado;
-        }
+     
     </script>
 
     
